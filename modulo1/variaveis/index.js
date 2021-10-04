@@ -7,7 +7,8 @@ typeof nome,idade;
 var nome = prompt ("Digite seu nome");
 var idade = prompt ("Digite sua idade");
 console.log('Olá,',nome, 'você tem', idade, 'anos');
-typeof  nome,idade// TIPO DE VARÍAVEL STRING E NUMBER
+console.log(typeof nome);
+console.log(typeof idade);
 
 var perg1 = prompt ("Você está usando roupa azul?");
 var perg2 = prompt ("Você está usando roupa preta?");
