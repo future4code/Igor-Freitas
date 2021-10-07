@@ -59,5 +59,3 @@ alert("DESAFIO 2");
 const desafio = ["Banana","Morango", "Abacaxi", "Laranja","Ameixa"];
 const r = desafio.slice(2, -2);
 console.log(r);
-console.log (r.length)
-
