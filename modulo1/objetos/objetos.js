@@ -20,17 +20,17 @@
 
 const pessoa = {
     nome: 'Igor',
-    apelido: ['WWW', 'ABC', 'xD']
+    apelidos: ['Igão', 'Outro Apelido', 'xD']
 }
-function retorno(){
- const retorno = pessoa.nome;
- const retorno1 = pessoa.apelido;
- console.log(`Eu sou ${retorno}, pode me chamar de: ${retorno1}`);
+function apresentar(){
+    return console.log(`Eu sou ${pessoa.nome}, pode me chamar de: ${pessoa.apelidos}`);
 }
-pessoa.apelido[3] = 'Zeca Urubu'
-pessoa.apelido[4] = 'Jimmy Neutron'
-pessoa.apelido[5] = 'Papai Noel'
-retorno();
+apresentar();
+    const trocarApelido = {
+    ...pessoa,
+    apelidos: ['Apelido 1', 'Apelido 2', 'Apelido 3']
+}
+    console.log(apresentar(trocarApelido))
 
 
 
