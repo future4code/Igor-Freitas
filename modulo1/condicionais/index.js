@@ -80,7 +80,7 @@ switch (TipoDeJogo = prompt('Digite o tipo de jogo. Nacional ou Internacional?')
 
 }
 
-switch (etapa = prompt('Digite a tepada do jogo, SF, DT ou Final?')) {
+switch (etapa = prompt('Digite a tepada do jogo, SF, DT ou FI?')) {
     case 'SF':
         console.log('Etapa do jogo: Semifinal');
         break;
@@ -112,12 +112,14 @@ if (categoria == 1 && etapa === 'SF') {
     const valor = 1320
     const ingressos = +prompt('Digite quantos ingressos deseja');
     const compraTotal = ingressos * valor;
+    console.log(`Quantidade de ingressos:  ${ingressos}`)
     console.log('--- VALORES ---');
     console.log(`Valor do ingresso: R$ 1980`)
     console.log(`Valor total: ${compraTotal}`)
 } else if (categoria == 2 && etapa === 'SF') {
     const valor = 880
     const ingressos = +prompt('Digite quantos ingressos deseja');
+    console.log(`Quantidade de ingressos:  ${ingressos}`)
     const compraTotal = ingressos * valor;
     console.log('--- VALORES ---');
     console.log(`Valor do ingresso: R$ 880`)
@@ -125,6 +127,7 @@ if (categoria == 1 && etapa === 'SF') {
 } else if (categoria == 4 && etapa === 'SF') {
     const valor = 220
     const ingressos = +prompt('Digite quantos ingressos deseja');
+    console.log(`Quantidade de ingressos:  ${ingressos}`)
     const compraTotal = ingressos * valor;
     console.log('--- VALORES ---');
     console.log(`Valor do ingresso: R$ 220`)
@@ -138,6 +141,7 @@ if (categoria == 1 && etapa === 'SF') {
 if (categoria == 1 && etapa === 'DT') {
     const valor = 660
     const ingressos = +prompt('Digite quantos ingressos deseja');
+    console.log(`Quantidade de ingressos:  ${ingressos}`)
     const compraTotal = ingressos * valor;
     console.log('--- VALORES ---');
     console.log(`Valor do ingresso: R$ 440`)
@@ -145,6 +149,7 @@ if (categoria == 1 && etapa === 'DT') {
 } else if (categoria == 2 && etapa === 'DT') {
     const valor = 440
     const ingressos = +prompt('Digite quantos ingressos deseja');
+    console.log(`Quantidade de ingressos:  ${ingressos}`)
     const compraTotal = ingressos * valor;
     console.log('--- VALORES ---');
     console.log(`Valor do ingresso: R$ 440`)
@@ -152,6 +157,7 @@ if (categoria == 1 && etapa === 'DT') {
 } else if (categoria == 4 && etapa === 'DT') {
     const valor = 170
     const ingressos = +prompt('Digite quantos ingressos deseja');
+    console.log(`Quantidade de ingressos:  ${ingressos}`)
     const compraTotal = ingressos * valor;
     console.log('--- VALORES ---');
     console.log(`Valor do ingresso: R$ 170`)
@@ -163,6 +169,7 @@ if (categoria == 1 && etapa === 'DT') {
 if (categoria == 1 && etapa === 'FI') {
     const valor = 1980
     const ingressos = +prompt('Digite quantos ingressos deseja');
+    console.log(`Quantidade de ingressos:  ${ingressos}`)
     const compraTotal = ingressos * valor;
     console.log('--- VALORES ---');
     console.log(`Valor do ingresso: R$ 1980`)
@@ -170,6 +177,7 @@ if (categoria == 1 && etapa === 'FI') {
 } else if (categoria == 2 && etapa === 'FI') {
     const valor = 1320
     const ingressos = +prompt('Digite quantos ingressos deseja');
+    console.log(`Quantidade de ingressos:  ${ingressos}`)
     const compraTotal = ingressos * valor;
     console.log('--- VALORES ---');
     console.log(`Valor do ingresso: R$ 1320`)
@@ -177,6 +185,7 @@ if (categoria == 1 && etapa === 'FI') {
 } else if (categoria == 4 && etapa === 'FI') {
     const valor = 330
     const ingressos = +prompt('Digite quantos ingressos deseja');
+    console.log(`Quantidade de ingressos:  ${ingressos}`)
     const compraTotal = ingressos * valor;
     console.log('--- VALORES ---');
     console.log(`Valor do ingresso: R$ 330`)
