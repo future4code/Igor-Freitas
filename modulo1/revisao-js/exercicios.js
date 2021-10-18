@@ -17,9 +17,10 @@ array([8, 23, 16, 10])
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-    array.sort()
+    array.sort((a,b)=> a - b)
+   return array
 }
-retornaArrayOrdenado([36,12,56,7,3])
+retornaArrayOrdenado([36, 12, 56, 7, 3])
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
   
