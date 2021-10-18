@@ -93,8 +93,20 @@ console.log(retornaNPrimeirosPares(n))
 
 // EXERCÍCIO 09
 function classificaTriangulo(ladoA, ladoB, ladoC) {
-
+    let lado1 = ladoA
+    let lado2 = ladoB
+    let lado3 = ladoC
+    if(lado1< (lado2+lado3) && lado2 < (lado1+lado3) && lado3 < (lado1+lado2)){
+        if(lado1 == lado2 && lado2 == lado3){
+            return "Equilátero"
+        } else if (lado1 == lado2 || lado1 == lado3 || lado3 == lado2){
+            return "Isósceles"
+        } else {
+            return "Escaleno"
+        }
+    }
 }
+classificaTriangulo(5,5,5)
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
