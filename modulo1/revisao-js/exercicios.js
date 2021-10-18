@@ -48,13 +48,19 @@ console.log(retornaNumerosParesElevadosADois(array))
 
 
 // EXERCÍCIO 06
+
 function retornaMaiorNumero(array) {
-    array = [1,2,3,4,5,6,7]
-    let maior = 0
-    for (let i = 0; i < array.length; i++){
-        
-    }
-retornaMaiorNumero()
+ let i = 0
+ let maior = -Infinity
+ while(i < array.length) {
+     if(array[i] > maior){
+         maior = array[i]
+     }
+     i++
+ }
+ return maior
+}
+retornaMaiorNumero([1,2,3,4,5,6,7])
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
 
