@@ -38,7 +38,7 @@ function retornaNumerosParesElevadosADois(array) {
     while (i < array.length) {
         if (array[i] % 2 === 0) {
             let numeroPar = array[i]
-            arraypPar.push(numeroPar * numeroPar)
+            arraypPar.push(nuSmeroPar * numeroPar)
         }
         i++
     }
@@ -96,10 +96,10 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
     let lado1 = ladoA
     let lado2 = ladoB
     let lado3 = ladoC
-    if(lado1< (lado2+lado3) && lado2 < (lado1+lado3) && lado3 < (lado1+lado2)){
+    if(ladoA< (ladoB+ladoC) && ladoB < (ladoA+ladoC) && ladoC < (ladoA+ladoB)){
         if(lado1 == lado2 && lado2 == lado3){
             return "Equilátero"
-        } else if (lado1 == lado2 || lado1 == lado3 || lado3 == lado2){
+        } else if (ladoA == ladoB || ladoA == ladoC || ladoC == ladoB){
             return "Isósceles"
         } else {
             return "Escaleno"
@@ -110,8 +110,18 @@ classificaTriangulo(5,5,5)
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
+    let arrayOrdenada = array.sort(function(a,b){
+        if(a>b) return 1
+        if(a<b) return -1
+    })
+    let segundoMenorValor = arrayOrdenada[1]
+    let segundoMaiorValor = arrayOrdenada[arrayOrdenada.length -2]
+    let arrayResultado = [segundoMaiorValor, segundoMenorValor]
+    return arrayResultado
 
 }
+retornaSegundoMaiorESegundoMenor()
+
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
