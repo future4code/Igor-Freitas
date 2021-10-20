@@ -22,39 +22,26 @@
             <li><a href="./historico.html">Historico de Vendas</a></li>
         </ul>
     </div>
+    <h1 class="titulo">Pagina de Vendas</h1>
+    <!-- Lista dos itens -->
+    <div class="compras">
+        <fieldset>
+            <legend>Selecione o Produto</legend>
+            <select name="produtos" id="itens">
+               <optgroup label ="Tecnologia">
+                <option value="RTX">RTX 3080TI</option>
+                <option value="Notebook">Notebook Alienware</option>
+               </optgroup>
+               <optgroup label="Picolé">
+                <option value="Bob">Picolé Bob Esponja</option>
+                <option value="piu">Picolé Piu-Piu</option>
+               </optgroup>
+            </select>
+            <input type="submit" value="Adicionar">
+        </fieldset>
+    </div>
 
-    
-    <h2>Adicionar Produto</h2>
-    <form action="">
-        <div>
-            <label for="link-foto">Link para foto: </label>
-            <input type="url" id="link-foto" name="link-foto">
-        </div>
-        
-        <div>
-            <label for="descricao">Descrição do produto: </label>
-            <!-- Adicione o id apropriado para o input abaixo -->
-            <input type="text" id="description" name="descrição">
-        </div>
-        
-        <div>
-            <label for="preco">Preço (em R$): </label>
-            <!-- Adicione o id apropriado e o type para receber números abaixo -->
-            <input type="number" id="price" name="preço">
-        </div>
-        
-        <div>
-            <!-- Preencha as propriedades necessárias para os elementos abaixo -->
-            <label>Quantidade disponível: </label>
-            <input type="number">
-        </div>
-
-        <div class="form-add">
-            <!-- Adicione ao type do botão abaixo o valor para que ele submeta o formulário -->
-            <button type="submit">Adicionar</button>
-        </div>
-
-    </form>
+<!-- Rodapé -->
     <div id="rodape">
         <footer>
             <p>Siga-nos nas redes sociais!</p>
@@ -63,6 +50,3 @@
          <img src="https://image.flaticon.com/icons/png/512/8/8800.png"/>
         </footer>
      </div>
-
-</body>
-</html>
