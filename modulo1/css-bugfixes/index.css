@@ -22,7 +22,10 @@ input {
     height: 20px;
     width: 500px;
     border: none;
-    border-bottom: 3px solid;
+    border-bottom: 2px solid;
+}
+input:hover{
+    opacity: 0.1;
 }
 
 button:focus {
@@ -82,7 +85,7 @@ div img {
 }
 
 #container-de-descricao>ol {
-    padding: 15px 450px;
+    padding: 15px 900px;
     
 }
 #container-de-descricao {
