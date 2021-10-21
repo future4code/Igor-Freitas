@@ -16,6 +16,7 @@ h2 {
     text-align: center;
 }
 
+
 input {
     height: 20px;
     width: 500px;
@@ -72,11 +73,13 @@ div img {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
+    padding-top: 30px;
 }
 
 #container-de-descricao>ol {
     padding: 15px 0px;
 }
+
 
 #container-para-comprar {
     background-color: #e7eb90;
