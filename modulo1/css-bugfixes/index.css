@@ -59,6 +59,7 @@ div img {
 .container {
     height: 500px;
     text-align: center;
+    
 
 }
 
@@ -77,10 +78,16 @@ div img {
     background-color: #2274a5;
     color: white;
     padding-top: 30px;
+    
 }
 
 #container-de-descricao>ol {
-    padding: 15px 0px;
+    padding: 15px 450px;
+    
+}
+#container-de-descricao {
+    list-style: decimal;
+    
 }
 
 
@@ -154,3 +161,4 @@ img {
 div table {
     margin-left: 480px ;
 }
+
