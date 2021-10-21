@@ -148,3 +148,7 @@ img {
     background-color: #ccc;
     cursor: pointer;
 }
+
+div table, #back-button {
+    margin-left: 300px ;
+}
