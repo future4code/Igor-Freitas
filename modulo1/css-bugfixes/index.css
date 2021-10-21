@@ -114,9 +114,14 @@ td button {
     border-radius: 5px;
     color: black;
 }
-td,tr{
+td,tr {
     text-align: center;
 }
+
+img {
+    width: 50px;
+}
+
 .container-do-search {
     margin-top: 20px;
     height: 100px;
