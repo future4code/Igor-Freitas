@@ -56,8 +56,6 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 1px 1px 1px black;
-    border: 1px solid;
 }
 
 .card-video:hover{
@@ -89,3 +87,80 @@ button{
     height: 60px;
 }
 
+
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+   
+    .video-solo{
+        margin: 3vh;
+        width: 300px;
+
+    }
+
+    .videos{
+        margin-left: 15px;
+    }
+
+    button{
+        width: 60px;
+        height: 40px;
+    }
+
+    footer{
+        height: 70px;
+        font-size: 10px;
+        text-align: center;
+        
+    }
+    input{
+        width: 10vh;
+        margin-right: 10px;
+    }
+    
+    main p{
+        font-size: 30px;
+        
+    }
+    h2{
+        font-size: 0.8em;
+    }
+  
+    main{
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 3ch;
+        margin: auto;
+        
+    }
+
+   
+    #inicial{
+        top: 288vh;
+        font-size: 0.8em
+    }
+}
+
+
+@media screen and (min-device-width : 481px) and (max-device-width : 800px) {
+    /* tablets */
+    
+        main{
+            margin: 10%;
+            width: 20vh;
+            grid-template-columns: 300px 300px ;
+        }
+
+        .videos{
+            margin: auto;
+            margin-left: 9vh;
+            margin-top: 25vh;
+        }
+        
+        .video-solo{
+            width: 600px;
+            height: 350x;
+        }
+
+       
+    }
+    
