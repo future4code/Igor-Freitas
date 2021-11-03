@@ -34,6 +34,7 @@ function App() {
   return (
     <div>
     <AppFlex>
+      <GlobalStyle/>
       <PageSectionContainer>
         <H2>Dados pessoais</H2>
         <CardGrande 
@@ -50,7 +51,7 @@ function App() {
 
       <CardPequeno/>
 
-      <div className="page-section-container">
+      <PageSectionContainer>
         <H2>Experiências profissionais</H2>
         <CardGrande 
           imagem="https://s3.amazonaws.com/future4.com.br/static/headf4-c492117ca2373dc85ca81bf715b3dc2a.png" 
@@ -63,10 +64,10 @@ function App() {
           nome="NASA" 
           descricao="Apontando defeitos." 
         />
-      </div>
+      </PageSectionContainer>
 
-      <div className="page-section-container">
-        <h2>Minhas redes sociais</h2>
+      <PageSectionContainer>
+        <H2>Minhas redes sociais</H2>
         <ImagemButton 
           imagem="https://d2v9ipibika81v.cloudfront.net/uploads/sites/261/2017/01/facebook-logo-3.png" 
           texto="Facebook" 
@@ -76,7 +77,7 @@ function App() {
           imagem="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-1-1.png" 
           texto="Twitter" 
         />        
-      </div>
+      </PageSectionContainer>
     </AppFlex>
     </div>
   );
