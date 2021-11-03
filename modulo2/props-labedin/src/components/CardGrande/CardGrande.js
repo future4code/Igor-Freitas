@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 
 const BigcardContainer = styled.div`
-     display: flex;
+    display: flex;
     align-items: center;
     border: 1px solid black;
     padding: 20px 10px;
@@ -31,15 +31,14 @@ const H4 = styled.h4 `
 `
 
 
-
 function CardGrande(props) {
     return (
         <BigcardContainer>
             <Img src={ props.imagem } />
-            <div>
+            <BigDiv>
                 <H4>{ props.nome }</H4>
                 <p>{ props.descricao }</p>
-            </div>
+            </BigDiv>
         </BigcardContainer>
     )
 }

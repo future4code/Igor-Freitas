@@ -22,6 +22,7 @@ const AppFlex = styled.div`
 const PageSectionContainer = styled.div`
   width: 40vw;
   margin: 10px 0;
+  width: 770px;
 `
 const H2 = styled.h2`
   display: flex;
