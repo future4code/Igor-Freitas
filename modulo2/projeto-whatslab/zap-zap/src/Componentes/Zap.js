@@ -30,22 +30,27 @@ const InputMsg = styled.input`
 const BotaoEnviar = styled.button`
     display: flex;
     margin-top: 85.5vh; 
+    height: 22px;
    
-   
-
 `
+    const Msg = styled.div`
+    height: 50px;
+    width: auto;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+  
+    `
 
 export default class Zap extends React.Component{
 
     state = {
         user: [
             {
-                nome:'Igor',
-                mensagem:'Teste'
+                
             },
             {
-                nome: 'Dani',
-                mensagem:'Testee'
+                
             }
         ],
         valorInputNome: "",
@@ -61,12 +66,12 @@ export default class Zap extends React.Component{
         this.setState({user: novaPessoa})
     }
   
-    onChangeInputUser = (e)=>{
-        this.setState({valorInputUser})
+    onChangeInputNome = (e)=>{
+       this.setState({valorInputNome: e.target.value})
     }
    
     onChangeInputMensagem = (e)=>{
-        this.setState({ValorInputMensagem})
+        this.setState({ValorInputMensagem: e.target.value})
     }
 
  
@@ -83,19 +88,19 @@ export default class Zap extends React.Component{
         })
         return(
             <ContainerMsg>
+                <Msg>{listaDeComponentes}</Msg>
                <InputNome placeholder="Nome" value={this.state.valorNome}
-               value = {this.state.valorNome}
-               onChange={this.onChangeNome}
+               value = {this.state.valorInputNome}
+               onChange={this.onChangeInputNome}
                />
 
                <InputMsg placeholder="Mensagem" value={this.state.valorMensagem}
-               value = {this.state.valorMensagem}
-               onChange={this.onChangeMensagem}
+               value = {this.state.ValorInputMensagem}
+               onChange={this.onChangeInputMensagem}
                />
                 
                     <BotaoEnviar onClick ={this.enviarMensagem}>Enviar</BotaoEnviar>
-                    <div>{listaDeComponentes}</div>
-
+                    
             </ContainerMsg>
         )
     }
