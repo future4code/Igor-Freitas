@@ -44,7 +44,7 @@ class App extends React.Component {
     // TRANFORMAR ARRAY EM OBJETO E CHAMAR PRA SALVAR
    const userStorage = localStorage.getItem('User')
    const userParse = JSON.parse(userStorage)
-   this.setState({tarefas:userParse})
+   this.setState({tarefas:userParse || []})
   };
  
   onChangeInput = (event) => {
