@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {useState, useEffect} from 'react'
-import * as C from '../styles'
+
 
 
 export default function Matches (props){
@@ -37,3 +37,4 @@ export default function Matches (props){
         </div>
     )
 }
+

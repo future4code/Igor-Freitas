@@ -1,8 +1,12 @@
 import axios from 'axios'
 import {useState, useEffect} from 'react'
 import Matches from './Matches'
-import * as C from '../styles'
-import {BsHeartFill} from 'react-icons/bs'
+import styled from 'styled-components'
+
+const Teste = styled.div`
+background-color: #CCC;
+
+`
 
 export default function Home (){
 const [profile, setProfile] = useState({})
@@ -11,6 +15,7 @@ const [page, setPage] = useState(1)
 
 useEffect(()=>{
     getProfile()
+
 },[])
 
 
@@ -76,17 +81,17 @@ const onClickHome = () =>{
 
 console.log(profile)
 const pickInfo = <div>
-                <div>
+                <Teste>
                    <h3>AstroMatch</h3>
                    <button onClick={onClickMatches}>Matches</button>
-                </div>
+                </Teste>
                 <p>{profile.name}</p>
                 <img src={profile.photo} width='200px' height='200px'/>
                 <div>{profile.bio}</div>
                 <div>{profile.age}</div>
                 <button onClick={getProfile}>X</button>
                 <button onClick={choosePerson}>♥</button>
-                    
+                <button onClick={reset}>Reset</button>
                 </div>
 
 console.log(matches)
@@ -100,9 +105,7 @@ const pickMatches = <div>
     return(
         <div>
            {changePage()}
-           <div>
-               <button onClick={reset}>Reset</button>
-           </div>
+
         </div>
     )
 }
