@@ -1,12 +1,13 @@
 import axios from 'axios'
 import {useState, useEffect} from 'react'
 import Matches from './Matches'
-import styled from 'styled-components'
+import { AiFillFire } from "react-icons/ai";
+import { AiFillHeart } from "react-icons/ai";
+import { MdCancel } from "react-icons/md";
+import { IoMdRefresh } from "react-icons/io";
+import * as C from './styles'
 
-const Teste = styled.div`
-background-color: #CCC;
 
-`
 
 export default function Home (){
 const [profile, setProfile] = useState({})
@@ -55,6 +56,7 @@ const reset = () =>{
     .put('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/IgorMF/clear')
     .then((response)=>{
         console.log(response.data)
+        alert('API Resetada')
     })
     .catch((error)=>{
         console.log(error.response.data)
@@ -80,23 +82,35 @@ const onClickHome = () =>{
 
 
 console.log(profile)
-const pickInfo = <div>
-                <Teste>
-                   <h3>AstroMatch</h3>
-                   <button onClick={onClickMatches}>Matches</button>
-                </Teste>
-                <p>{profile.name}</p>
-                <img src={profile.photo} width='200px' height='200px'/>
-                <div>{profile.bio}</div>
-                <div>{profile.age}</div>
-                <button onClick={getProfile}>X</button>
-                <button onClick={choosePerson}>♥</button>
-                <button onClick={reset}>Reset</button>
+const pickInfo = <C.DivToda>
+                <C.GlobalStyle/>
+                <C.Titulo>
+                <h2>AstroMatch</h2> 
+            <div><AiFillFire onClick={onClickMatches} size='30px' color='red'/></div>
+                </C.Titulo>
+                
+                <C.Card>
+                <h3>{profile.name }, {profile.age}</h3>
+                <img src={profile.photo} />
+                <p>{profile.bio}</p>
+                
+                <C.Button>
+                <div>
+                <MdCancel onClick={getProfile} size='40px' color='gray'  />
                 </div>
+
+                <div>
+                <AiFillHeart onClick={choosePerson} size='40px' color='red'/>
+                </div>
+                </C.Button>
+                <IoMdRefresh onClick={reset} color='red'/>
+                </C.Card>
+                </C.DivToda>
+                
 
 console.log(matches)
 const pickMatches = <div>
-                <img src={matches.photo} width='50px' height='50px'/>
+                <img src={matches.photo}/>
                 <p>{matches.name}</p>
                 <div>{matches.bio}</div>
                 </div>
