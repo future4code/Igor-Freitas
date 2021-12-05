@@ -1,6 +1,8 @@
 import axios from 'axios'
+import { BsBack } from "react-icons/bs"
 import {useState, useEffect} from 'react'
-
+import { IoMdRefresh } from "react-icons/io";
+import * as C from './styles'
 
 
 export default function Matches (props){
@@ -23,17 +25,20 @@ export default function Matches (props){
     }
      const matchesOk = matches.map((matched)=>{
          return(
-            <div>
-           <img src={matched.photo} width='80px' height='80px'/>
-            <p>{matched.name}</p>
-        </div>
+            <C.Maches>
+           <img src={matched.photo} width='90px' height='80px'/>
+            <div><p>{matched.name}</p></div>
+        </C.Maches>
          )
         
      })
     return(
         <div>
-            <button onClick={props.changePage}>Voltar</button>
+             <BsBack onClick={props.changePage} size='30px' color='red'/>
+           <C.Maches>
            {matchesOk}
+           </C.Maches>
+           <IoMdRefresh onClick={props.reset} color='red'/>
         </div>
     )
 }

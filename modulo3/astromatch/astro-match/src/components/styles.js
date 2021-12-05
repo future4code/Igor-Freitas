@@ -9,7 +9,6 @@ export const GlobalStyle = createGlobalStyle`
     background: #000;
     font-family: Open-Sans, Helvetica, Sans-Serif;
     margin-left: 85vh;
-
   }
 `
 export const DivToda = styled.div`
@@ -22,14 +21,14 @@ width: 55vh;
 h3{
         position: absolute;
         top: 580px;
-        left: 865px;
+        left: 875px;
         color: white;
         text-shadow: 0px 0px 5px black;
     }
     p{
         position: absolute;
         top: 610px;
-        left: 865px;
+        left: 875px;
         color: white;
         text-shadow: 0px 0px 5px black;
         
@@ -82,3 +81,33 @@ width: 20vh;
 margin-left: 15vh;
 margin-top: 2vh;
 `
+
+
+export const Maches = styled.div`
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+width: 40vh;
+gap: 3px;
+align-items: center;
+margin-top: 10px;
+padding: 2px;
+
+img{
+  border-radius: 50%;
+  border: 5px solid #ccc;
+  &:hover{
+    border: 5px solid red;
+  }
+
+}
+div{
+  font-family: Open-Sans, Helvetica, Sans-Serif;
+    color: #000;
+    margin-top: 5px;
+    font-weight: 800;
+}
+p{
+  border-left: 5px solid red;
+}
+`
+

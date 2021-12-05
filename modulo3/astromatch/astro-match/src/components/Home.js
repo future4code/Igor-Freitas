@@ -68,7 +68,7 @@ const changePage = () =>{
   if(page === 1){
       return pickInfo
   } else if(page === 2){
-      return <Matches changePage={onClickHome}/>
+      return <Matches changePage={onClickHome} reset={reset}/>
   }
 }
 const onClickMatches = () =>{
