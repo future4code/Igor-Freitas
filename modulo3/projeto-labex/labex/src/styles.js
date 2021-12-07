@@ -21,16 +21,17 @@ width: 300px;
 height: 300px;
 }
 p{
-  color: #F2F200;
+  color: #1565C0;
   font-size: 60px;
   font-weight: 900;
+  &:hover{
+    text-shadow: 2px 2px 0px rgba(255, 255, 255, 1);
+  }
 }
 `
 export const Button = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
-button{
-margin-left: 45px;
-}
+margin-top: 40px;
 `
