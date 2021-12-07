@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     background: #101010;
+    color: #fff;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 `
@@ -35,3 +36,37 @@ align-items: center;
 justify-content: center;
 margin-top: 40px;
 `
+// FORM PAGE
+
+export const DivForm = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+p{
+  font-size: 24px;
+  font-weight: 500;
+}
+`
+
+
+
+// ERROR PAGE 
+ export const DivError = styled.div`
+ text-align: center;
+ background-color: #152643;
+ max-width: 100%;
+ height: 100vh;
+ overflow-x: hidden;
+ 
+
+  img{
+    width: 100vh;
+    
+  }
+ `
+
+ export const ButtonHome = styled.div`
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ `
