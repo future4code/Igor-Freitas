@@ -12,7 +12,9 @@ export default function HomePage() {
   const goToTrips = () =>{
     history.push('/viagens')
   }
-
+  const goToAdm = () =>{
+    history.push('/adm')
+}
   return(
     <div>
     <C.GlobalStyle/>
@@ -23,7 +25,7 @@ export default function HomePage() {
     <C.Button>
     <Stack spacing={15} direction="row">
     <Button variant="contained" type='submit' onClick={goToTrips}>Viagens</Button>
-    <Button variant="contained" type='submit' >Área Admin</Button>
+    <Button variant="contained" type='submit' onClick={goToAdm} >Área Admin</Button>
     </Stack>
     </C.Button>
 </div>
