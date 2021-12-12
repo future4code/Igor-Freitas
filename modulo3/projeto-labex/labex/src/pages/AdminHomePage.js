@@ -5,8 +5,10 @@ import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
 import * as C from '../styles'
 import { useState, useEffect } from 'react'
+import { FaTrash } from "react-icons/fa";
+import Swal from 'sweetalert2'
 
-export default function AdminHomePage(){
+export default function AdminHomePage() {
     const [trip, setTrip] = useState([])
 
 
@@ -25,32 +27,68 @@ export default function AdminHomePage(){
                 console.log(err)
             })
     }
+    
+    const deleteTrip = () => {
+        const body = {
+            sucess: true
+        }
+        axios
+            .delete(`${URL_BASE}/trips/`, body)
+            .then(() => {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Apagada!',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+            .catch((err) => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Algo deu errado!',
+                    footer: '<b>Verifique tudo e tente novamente</b>'
+                })
+                console.log('delete',err.response)
+            })
+    }
+
+
 
     const tripList = trip.map((tps) => {
         return (
             <C.DivTrips>
-                <p onClick={()=> history.push(`/detalhes/${tps.id}`)}><b>Nome:</b>{tps.name}</p>
+                <p onClick={() => history.push(`/detalhes/${tps.id}`)}><b>Nome: </b>{tps.name}</p>
             </C.DivTrips>
 
         )
     })
-    
+
+   
+
     const history = useHistory()
 
-    const goToHome = () =>{
+    const goToHome = () => {
         history.push('/')
     }
+    const goCreateTrips = () =>{
+        history.push('/criar')
+    }
     axios
-    .get(`${URL_BASE}`)
+        .get(`${URL_BASE}`)
 
-    return(
+    return (
         <div>
+            <C.GlobalStyle/>
             <C.TripsCard key={trip.id}>{tripList}</C.TripsCard>
-     <Stack spacing={15} direction="row">
+            <C.ButtonForm>
+            <Stack spacing={15} direction="row">
                 <Button variant="contained" type='submit' onClick={goToHome}>Voltar</Button>
-                <Button variant="contained" type='submit'>Criar Viagem</Button>
+                <Button variant="contained" type='submit'onClick={goCreateTrips}>Criar Viagem</Button>
                 <Button variant="contained" type='submit'>Logout</Button>
             </Stack>
+            </C.ButtonForm>
         </div>
     )
 }

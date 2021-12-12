@@ -5,64 +5,90 @@ import * as C from '../styles'
 import axios from 'axios'
 import { URL_BASE } from '../constants/url'
 import { useState } from 'react'
+import Swal from 'sweetalert2'
 
-export default function LoginPage(){
-    
+
+export default function LoginPage() {
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const onChangeEmail = (e) =>{
+    const onChangeEmail = (e) => {
         setEmail(e.target.value)
     }
 
-    const onChangePassword = (e) =>{
+    const onChangePassword = (e) => {
         setPassword(e.target.value)
     }
 
-    const onSubmitLogin = () =>{
+    const onSubmitLogin = (e) => {
+        e.preventDefault()
         console.log(email, password)
         const body = {
             email: email,
             password: password
         }
         axios
-        .post(`${URL_BASE}/login`, body)
-        .then((res)=>{
-            console.log('Ok', res.data.token)
-            localStorage.setItem('token' ,res.data.token)
-            history.push('/admhome')
-        })
-        .catch((err)=>{
-            console.log('Erro:',err.response)
-        })
-
+            .post(`${URL_BASE}/login`, body)
+            .then((res) => {
+                console.log('Ok', res.data.token)
+                localStorage.setItem('token', res.data.token)
+                history.push('/admhome')
+            })
+            .catch(() => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Algo deu errado!',
+                    footer: '<b>Confira seu login e senha</b>'
+                })
+            })
     }
+
+
 
 
     const history = useHistory()
 
-    const goToHome = () =>{
+    const goToHome = () => {
         history.push('/')
     }
 
 
-    return(
-        <div>
-    <C.GlobalStyle/>
-    <C.DivLogin>
-    <p>Login</p>
+    return (
+        
+        <C.DivForm>
+            <C.GlobalStyle />
+            <C.Title>
+                <p>Login</p>
+            </C.Title>
 
-    <b>Login</b>
-    <input type='email' value={email} onChange={onChangeEmail}></input>
-    <b>Senha</b>
-    <input type='password' value={password} onChange={onChangePassword}></input>
-    </C.DivLogin>
-    <C.ButtonLogin>
-    <Stack spacing={15} direction="row">
-    <Button variant="contained" type='submit' onClick={goToHome}>Voltar</Button>
-    <Button variant="contained" type='submit' onClick={onSubmitLogin}>Entrar</Button>
-    </Stack>
-    </C.ButtonLogin>
-        </div>
+            <C.DivLogin>
+                <input required
+                    type='email'
+                    value={email}
+                    placeholder='E-mail'
+                    onChange={onChangeEmail}>
+                </input>
+
+                <input required
+                    type='password'
+                    value={password}
+                    placeholder='senha'
+                    onChange={onChangePassword}
+                    pattern={'^{3,}'}
+                    title={'minimo de 3 caractere'}
+                >
+                </input>
+
+            </C.DivLogin>
+            
+            <C.ButtonForm>
+                <Stack spacing={15} direction="row">
+                    <Button variant="contained" type='submit' onClick={goToHome}>Voltar</Button>
+                    <Button variant="contained" type='submit' onClick={onSubmitLogin}>Entrar</Button>
+                </Stack>
+            </C.ButtonForm>
+        </C.DivForm>
     )
 }

@@ -9,7 +9,6 @@ import * as C from '../styles'
 export default function TripDetailsPage() {
     const [details, setDetail] = useState({})
     const [candidates, setCandidates] = useState([])
-    const [aproved, setAproved] = useState([])
 
 
     const history = useHistory()
@@ -33,7 +32,7 @@ export default function TripDetailsPage() {
 
             .then((res) => {
                 setDetail(res.data.trip)
-                setCandidates(res.data.trip.candidates)
+                setCandidates(res.data.trip)
             })
             .catch((err) => {
                 console.log('erroo', err.response)
@@ -51,31 +50,85 @@ export default function TripDetailsPage() {
         </C.DivTrips>
     </div>
 
-    const detailCandidate = candidates.map((profile) => {
+    const detailCandidate = details.candidates && details.candidates.map((profile) => {
         return (
-            <C.CandCard key ={profile.id}>
+            <C.CandCard key={profile.id}>
                 <p><b>Nome: </b>{profile.name}</p>
                 <p><b>Idade: </b>{profile.age}</p>
                 <p><b>Pais: </b>{profile.country}</p>
                 <p><b>Profissão: </b>{profile.profession}</p>
                 <p><b>Texto de Candidatura: </b>{profile.applicationText}</p>
+
                 <C.ButtonDetails>
                     <Stack spacing={15} direction="row">
-                        <Button variant="contained" type='submit'>Aprovar</Button>
-                        <Button variant="contained" type='submit'>Reprovar</Button>
+                        <Button variant="contained" type='submit' onClick={() => decideCandidate(profile.id, 'aproved')}>Aprovar</Button>
+                        <Button variant="contained" type='submit' onClick={() => decideCandidate(profile.id, 'reproved')}>Reprovar</Button>
                     </Stack>
                 </C.ButtonDetails>
             </C.CandCard>
         )
     })
 
-    console.log('deet', details)
-    console.log('candi', candidates)
+
+    const decideCandidate = (id, res) => {
+        if (res === 'aproved') {
+            const body = {
+                approve: true
+            }
+            axios
+                .put(`${URL_BASE}/trips/${params.id}/candidates/${id}/decide`, body,
+                    {
+                        headers: {
+                            auth: localStorage.getItem('token')
+                        }
+                    })
+                .then((res) => {
+                    getDetail()
+                    console.log(res.data.approved)
+                })
+                .catch((err) => {
+                    console.log(err.response)
+                })
+
+        } else if (res === 'reproved') {
+            const body = {
+                approve: false
+            }
+            axios
+                .put(`${URL_BASE}/trips/${params.id}/candidates/${id}/decide`, body,
+                    {
+                        headers: {
+                            auth: localStorage.getItem('token')
+                        }
+                    })
+                .then((res) => {
+                    getDetail()
+                    console.log(res.data.approved)
+                })
+                .catch((err) => {
+                    console.log(err.response)
+                })
+        }
+    }
+
+    const approved = details.approved && details.approved.map((pass) => {
+        return <li key={pass.id}>{pass.name}</li>
+
+    })
+
+    
+
+
     return (
         <div>
             <C.GlobalStyle />
-            <C.Title><p>Painel Administrativo</p></C.Title>
-            <C.TripsCard>{tripDetail}</C.TripsCard>
+            <C.Title>
+                <p>Painel Administrativo</p>
+            </C.Title>
+
+            <C.TripsCard>
+                {tripDetail}
+            </C.TripsCard>
             <C.Button>
                 <Stack spacing={15} direction="row">
                     <Button variant="contained" type='submit' onClick={goAdmHome}>Voltar</Button>
@@ -90,10 +143,11 @@ export default function TripDetailsPage() {
             </div>
 
             <C.DivAproved>
-                <p>Candidatos Aprovados</p>
+                <C.DivDetails>
+                    <p>Candidatos Aprovados</p>
+                </C.DivDetails>
+                <div>{approved}</div>
             </C.DivAproved>
-
-
         </div>
     );
 }

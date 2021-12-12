@@ -7,6 +7,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
 import TripDetailsPage from '../pages/TripDetailsPage';
 import AdminHomePage from '../pages/AdminHomePage'
+import CreateTripPage from '../pages/CreateTripPage';
 
 
 export const Router = () =>{
@@ -37,6 +38,10 @@ export const Router = () =>{
 
       <Route exact path={'/detalhes/:id'}>
       <TripDetailsPage/>
+      </Route>
+
+      <Route exact path={'/criar'}>
+      <CreateTripPage/>
       </Route>
 
 

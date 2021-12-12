@@ -36,22 +36,76 @@ align-items: center;
 justify-content: center;
 margin-top: 40px;
 `
+
+
 // FORM PAGE
 
 export const DivForm = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-p{
-  font-size: 24px;
-  font-weight: 500;
+    width: 50%;
+    margin: auto;
+    form{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin: auto;
+        margin-top: 15vh;
+  
+        input{
+            font-size: 16px;
+            margin: 10px 0px;
+            height: 35px;
+            border-radius: 8px;
+            border: none;
+            text-align: center;
+            outline: 0;
+            border: 3px solid #1565C0;
+            &::placeholder{
+              font-weight: 700;
+              color: #000;
+              opacity: 0.4;
+            }
+            &:hover{
+              border: 3px solid #B88846;
+            }
+      
+        }
+        select{
+            margin: 10px 0px;
+            height: 35px;
+            border-radius: 8px;
+            border: 3px solid #1565C0;
+            background-color: white;
+            font-weight: 800;
+            text-align:center ;
+            &:hover{
+              border: 3px solid #B88846;
+            }
+            
+        }
+        option{
+          font-weight: 500;
+          font-size:18px ;
+          text-align: center;
+          color: #1565C0; 
+          &:hover{
+              border: 3px solid #1565C0;
+            }
+
+        }
+      
 }
 `
 
+export const ButtonForm = styled.div`
+display: flex;
+justify-content:center;
+align-items: center;
+margin-top:5vh;
+`
 
 
 // ERROR PAGE 
- export const DivError = styled.div`
+export const DivError = styled.div`
  text-align: center;
  background-color: #152643;
  max-width: 100%;
@@ -65,25 +119,41 @@ p{
   }
  `
 
- export const ButtonHome = styled.div`
+export const ButtonHome = styled.div`
  display: flex;
  align-items: center;
  justify-content: center;
  `
 
- // ADM LOGIN
+// ADM LOGIN
 
- export const DivLogin = styled.div`
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- p{
-   font-size: 24px;
-   font-weight: 500;
+export const DivLogin = styled.div`
+margin-top: 15vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content:center ; 
+input{
+  width: 560px;
+ font-size: 16px;
+ margin: 10px 0px;
+ height: 35px;
+ border-radius: 8px;
+ border: none;
+ text-align: center;
+ outline: 0;
+ border: 3px solid #1565C0;
+ &::placeholder{
+   font-weight: 700;
+   color: #000;
+   opacity: 0.4;
  }
+ &:hover{
+   border: 3px solid #B88846;
+ }
+}
  `
- export const ButtonLogin = styled.div`
+export const ButtonLogin = styled.div`
  display: flex;
  flex-direction: column;
  align-items: center;
@@ -136,6 +206,14 @@ border-bottom: 2px solid #1565C0;
 }
 `
 
+export const Delete = styled.div`
+display: flex;
+justify-content:flex-end;
+&:hover{
+  color: red;
+}
+`
+
 // TRIP DETAILS
 
 export const DivDetails = styled.div`
@@ -180,6 +258,26 @@ margin-bottom: 15px;
 
 export const DivAproved = styled.div`
 display: flex;
+flex-direction: column;
 align-items: center;
 justify-content: center;
+P{
+  font-size: 24px;
+}
+li{
+  list-style:none;
+  font-size: 18px;
+  color: #B88846;
+  font-weight: 500;
+  &:before{
+    font-size:24px;
+  content: '•';
+  margin: 0 5px;
+  color: #1565C0;
+}
+
+
 `
+
+
+
