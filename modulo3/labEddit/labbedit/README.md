@@ -1,7 +1,7 @@
 
 ## _Labeddit_
 
-Labbedit é um projeto parcialmente inspirado no famoso Reddit..
+Labbedit é um projeto parcialmente inspirado no famoso Reddit, contendo apenas o báscio de suas funções, como, criar, postar, comentar, votar positivo ou negativo para o post e comentário.
 
 ## Recursos
 
