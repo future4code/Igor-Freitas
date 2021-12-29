@@ -30,6 +30,7 @@ Labbedit usa uma série de projetos de código aberto para funcionar corretament
 - Site : labedit-ig0rm.surge.sh
 - Login: igorlabenu@gmail.com
 - Password: igorlabenu
+- Para acessar os detalhes do post, clique nos comentários, no titulo ou no conteúdo do post.
 
  ## Fotos do projeto
  
