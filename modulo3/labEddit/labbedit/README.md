@@ -10,8 +10,7 @@ Labbedit é um projeto parcialmente inspirado no famoso Reddit..
 - Interagir comentando as postagens
 - Interagir aos posts e comentários usando o voto de positivo ou negativo.
     Caso não queira registrar-se, faça o login com os dados:
-    igorlabenu@gmail.com
-    igorlabenu
+    Publicação na Web simples com um único comando. Publique HTML, CSS e JS gratuitamente, sem sair da linha de comando.
 
 
 ## Tech
@@ -28,7 +27,10 @@ Labbedit usa uma série de projetos de código aberto para funcionar corretament
 - [Surge.sh] Publicação na Web simples com um único comando. Publique HTML, CSS e JS gratuitamente, sem sair da linha de comando.
 
 
-
+## Links
+labedit-ig0rm.surge.sh
+- Login: igorlabenu@gmail.com
+- Password: igorlabenu
 
    [ReactJS]: <https://react-icons.github.io/react-icons/>
    [Visual Studio Code]: <https://code.visualstudio.com/>
