@@ -27,7 +27,7 @@ Labbedit usa uma série de projetos de código aberto para funcionar corretament
 - [Surge.sh] Publicação na Web simples com um único comando. Publique HTML, CSS e JS gratuitamente, sem sair da linha de comando.
 
 
-## Links
+## Acesso
 - Site : labedit-ig0rm.surge.sh
 - Login: igorlabenu@gmail.com
 - Password: igorlabenu
