@@ -9,8 +9,7 @@ Labbedit é um projeto parcialmente inspirado no famoso Reddit, contendo apenas 
 - Interagir criando post
 - Interagir comentando as postagens
 - Interagir aos posts e comentários usando o voto de positivo ou negativo.
-    Caso não queira registrar-se, faça o login com os dados:
-    Publicação na Web simples com um único comando. Publique HTML, CSS e JS gratuitamente, sem sair da linha de comando.
+
 
 
 ## Tech
