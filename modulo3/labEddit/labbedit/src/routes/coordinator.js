@@ -1,12 +1,16 @@
 export const goToLogin = (history) =>{
-    history.push('/')
+    history.push('/login')
 }
 export const goToRegister = (history) =>{
-    history.push('/register')
+    history.push('/cadastro')
 }
 export const goToPosts = (history) =>{
     history.push('/posts')
 }
-export const goToFeed = (history, id) =>{
-    history.push(`/feed/${id}`)
+export const goToFeed = (history) =>{
+    history.push('/')
+}
+
+export const goToDetail = (history, id) =>{
+    history.push(`/posts/${id}`)
 }

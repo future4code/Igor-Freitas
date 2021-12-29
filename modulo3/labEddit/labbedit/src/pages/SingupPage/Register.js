@@ -6,20 +6,21 @@ import { useHistory } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
 import { register } from '../../services/user';
 import { useState } from 'react';
-import useProtectedPage from '../../hooks/useProtectedPage';
+import useUnprotectedPage from '../../hooks/useUnprotectedPage'
 import Logo from '../../assets/logo.png'
+import { goToLogin } from '../../routes/coordinator';
 
 
 
-export default function Register() {
-  useProtectedPage()
+export default function Register({setRightButtonText}) {
+  useUnprotectedPage()
   const history = useHistory()
   const [form, onChange, clear] = useForm({ username: '', email: '', password: '' })
   const [isLoading, setIsLoading] = useState(false)
 
   const onSubmitForm = (e) => {
     e.preventDefault()
-    register(form, clear, history, setIsLoading)
+    register(form, clear, history, setIsLoading, setRightButtonText)
   }
   return (
     <form onSubmit={onSubmitForm}>
@@ -71,8 +72,22 @@ export default function Register() {
       >
         {isLoading ? <CircularProgress color={"inherit"} size={24}/> : <>Fazer Cadastro</>}
       </Button>
+      <C.RegisterButtonContainer>
+     <Button
+      type={'submit'}
+      color={'primary'}
+      variant={'text'}
+      fullWidth
+      onClick={()=>goToLogin(history)}
+      >
+        Fazer Login
+      </Button>
+     </C.RegisterButtonContainer>
     </C.SignUpFormContainer>
+  
     </form>
+    
+    
   );
 }
 

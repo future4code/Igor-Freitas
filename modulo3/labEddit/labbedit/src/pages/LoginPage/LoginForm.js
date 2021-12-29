@@ -6,7 +6,7 @@ import {useHistory} from 'react-router-dom'
 import { login } from '../../services/user';
 import CircularProgress from '@material-ui/core/CircularProgress'
 
-export default function LoginForm() {
+export default function LoginForm({setRightButtonText}) {
   const [form, onChange, clear] = useForm({email: "", password: ""})
   const [isLoading, setIsLoading] = useState(false)
 
@@ -14,7 +14,7 @@ export default function LoginForm() {
   
   const onSubmitForm = (e) => {
     e.preventDefault()
-    login(form, clear, history, setIsLoading)
+    login(form, clear, history, setIsLoading, setRightButtonText)
   }
 
   

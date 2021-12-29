@@ -1,6 +1,7 @@
 import axios from 'axios'
 import  BASE_URL from '../constants/urls'
 import { goToFeed } from '../routes/coordinator'
+import Swal from 'sweetalert2'
 
 
 
@@ -17,11 +18,15 @@ export const login = (body, clear, history, setIsLoading, setRightButtonText) =>
         })
         .catch((err) => {
             setIsLoading(false)
-            alert(err)
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Verifique seu e-mail e senha'
+              })
         })
 }
 
-export const register = (body, clear, history, setIsLoading) => {
+export const register = (body, clear, history, setIsLoading,setRightButtonText) => {
     setIsLoading(true)
     axios
         .post(`${BASE_URL}/users/signup`, body)

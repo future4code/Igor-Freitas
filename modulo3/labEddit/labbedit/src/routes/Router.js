@@ -8,23 +8,23 @@ import Error from '../pages/ErrorPage/Error'
 
 
 
- const Router = ({rightButtonText ,setRightButtonText}) =>{
+ const Router = ({ setRightButtonText}) =>{
     return(
             <Switch>
-                <Route exact path='/'>
-                    <Login />
+                <Route exact path='/login'>
+                    <Login  setRightButtonText={setRightButtonText}/>
                 </Route>
 
-                <Route exact path='/register'>
-                    <Register/>
+                <Route exact path='/cadastro'>
+                    <Register setRightButtonText={setRightButtonText} />
                 </Route>
 
-                <Route exact path='/posts'>
+                <Route exact path='/posts/:id'>
                     <Posts />
                 </Route>
 
-                <Route exact path='/feed/:id'>
-                    <Feed/>
+                <Route exact path='/'>
+                    <Feed />
                 </Route>
 
                 <Route>

@@ -8,9 +8,8 @@ width: 100vw;
 margin-top: 5vh;
 `
 export const Logo = styled.img`
-  width: 60vw;
   max-width: 350px;
- 
+  margin-top: 10vw;
 `
 export const InputsContainer = styled.div`
   display: flex;

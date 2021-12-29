@@ -32,4 +32,12 @@ export const SignUpFormContainer = styled.div`
 export const LogoImage = styled.img`
   width: 70vw;
   max-width: 350px;
+  margin-top: 7vw;
+
+`
+
+export const RegisterButtonContainer = styled.div`
+margin-top: 15px;
+width: 80vw;
+max-width: 450px;
 `

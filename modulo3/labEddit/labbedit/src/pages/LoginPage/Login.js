@@ -8,14 +8,14 @@ import LoginForm from './LoginForm';
 import useUnprotectedPage from '../../hooks/useProtectedPage'
 
 
-export default function Login() {
+export default function Login({setRightButtonText}) {
   useUnprotectedPage()
   const history = useHistory()
 
   return (
     <C.Container>
       <C.Logo src={Logo} />
-      <LoginForm/>
+      <LoginForm setRightButtonText={setRightButtonText}/>
       <C.SignUpButtonContainer>
         <Button
         onClick={()=> goToRegister(history)}
