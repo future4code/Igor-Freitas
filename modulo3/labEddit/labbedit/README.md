@@ -5,7 +5,7 @@ Labbedit é um projeto parcialmente inspirado no famoso Reddit, contendo apenas 
 
 ## Recursos
 
-- Cadastro e Login
+- Cadastro, Login, Logout
 - Interagir criando post
 - Interagir comentando as postagens
 - Interagir aos posts e comentários usando o voto de positivo ou negativo.
