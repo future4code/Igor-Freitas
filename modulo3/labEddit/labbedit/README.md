@@ -28,7 +28,7 @@ Labbedit usa uma série de projetos de código aberto para funcionar corretament
 
 
 ## Links
-[Veja o site]
+- Site : labedit-ig0rm.surge.sh
 - Login: igorlabenu@gmail.com
 - Password: igorlabenu
 
@@ -40,5 +40,5 @@ Labbedit usa uma série de projetos de código aberto para funcionar corretament
    [Axios]: <https://github.com/axios/axios>
    [React Icons]: <react-icons.github.io/>
    [Surge.sh]: <https://surge.sh/>
-   [Veja o site] <labedit-ig0rm.surge.sh/>
+  
  
