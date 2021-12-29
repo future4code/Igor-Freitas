@@ -25,6 +25,7 @@ Labbedit usa uma série de projetos de código aberto para funcionar corretament
 - [React Awesome Loaders] Crie animações de carregamento de alta qualidade, super-responsivas e personalizáveis ​​para inserir em seu site
 - [Axios] Cliente HTTP baseado-em-promessas para o node. js e para o navegador.
 - [React Icons] Inclua ícones populares em seus projetos React facilmente com react-icons, que utiliza importações ES6 que permitem incluir apenas os ícones que seu projeto está usando.
+- [Surge.sh] Publicação na Web simples com um único comando. Publique HTML, CSS e JS gratuitamente, sem sair da linha de comando.
 
 
 
@@ -36,4 +37,5 @@ Labbedit usa uma série de projetos de código aberto para funcionar corretament
    [React Awesome Loaders]: <https://awesome-loaders.netlify.app/>
    [Axios]: <https://github.com/axios/axios>
    [React Icons]: <react-icons.github.io/>
+   [Surge.sh]: <https://surge.sh/>
  
