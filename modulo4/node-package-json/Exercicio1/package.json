@@ -1,0 +1,12 @@
+{
+  "name": "exercicio-1",
+  "version": "1.0.0",
+  "description": "atividade 1 labenu",
+  "main": "1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./1.js"
+  },
+  "author": "Igor Medeiros",
+  "license": "ISC"
+}
