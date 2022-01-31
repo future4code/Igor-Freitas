@@ -9,7 +9,7 @@ type Accounts = {
     
 }[]
 
-type Transactions = {
+ type Transactions = {
     description: string,
     date: string,
     value: number,

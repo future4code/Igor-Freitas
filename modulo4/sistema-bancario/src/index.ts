@@ -8,6 +8,7 @@ const app = express();
 app.use(express.json());
 let reqError = 400
 
+
 const server = app.listen(process.env.PORT || 3003, () => {
   if (server) {
     const address = server.address() as AddressInfo;
@@ -78,6 +79,33 @@ app.put('/deposit', (req: Request, res: Response)=>{
         res.status(reqError).send(error.message)
     }
 
+})
+app.post('/payment', (req: Request, res: Response)=>{
+
+    try{
+        const {cpf, paymentDate, paymentValue } = req.body
+        if(!cpf){
+            reqError = 404
+            throw new Error('Conta não encontrada, verifique os dados')
+        }
+        if(paymentValue < 0){
+            reqError = 402
+            throw new Error('O pagamento mínimo é de R$ 1,00')
+        }
+        if(!paymentDate){
+            res.status(200).send()
+        }
+        account.map((pay)=>{
+            if(pay.cpf === cpf){
+                return pay.balance - paymentValue
+            }
+        })
+        
+        res.send(account)
+    }
+    catch(error: any){
+        res.status(reqError).send(error.message)
+    }
 })
 
 app.post('/account/new', (req: Request, res: Response)=>{
