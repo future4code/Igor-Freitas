@@ -8,7 +8,7 @@ app.use(express.json())
 app.use(cors())
 
 import { AddressInfo } from "net";
-import { getUser, createUser, updateUser, tasks, getTask } from "./functions";
+import { getUser, createUser, updateUser, tasks, getTask, getAllUsers, getTaskByUserId, searchUser, responsible } from "./functions";
 
 const server = app.listen(process.env.PORT || 3006, () => {
     if (server) {
@@ -45,22 +45,16 @@ app.post('/users', async (req: Request, res: Response) => {
 
 })
 
-// pegar user
-app.get('/user/:id', async (req: Request, res: Response) => {
-    try {
-        const id: string = req.params.id
-        const user = await getUser(id)
-
-        if (user.length === 0) {
-            reqError = 404
-            res.status(reqError).send(`User aren't found`)
-        }
-        res.status(200).send(user)
-    } catch (err: any) {
+// pegar todos users
+app.get('/user/all', async (req:Request, res:Response)=>{
+    try{
+        const result = await getAllUsers()
+        res.status(200).send(result)
+    } catch(err:any){
         res.status(500).send(err.message)
-    }
-
+    } 
 })
+
 
 
 // editar user
@@ -73,7 +67,7 @@ app.put('/user/edit/:id', async (req: Request, res: Response) => {
             reqError = 401
             res.status(reqError).send()
         }
-        res.status(201).send('Completed')
+        res.status(202).send('Completed')
 
     } catch (err: any) {
         res.status(500).send(err.message)
@@ -95,7 +89,7 @@ app.post('/task', async (req: Request, res: Response) => {
             reqError = 401
             res.status(401).send('Fill all the fields')
         }
-        res.status(200).send('Added task')
+        res.status(201).send('Added task')
     } catch (err: any) {
         res.status(500).send(err.message)
     }
@@ -122,3 +116,56 @@ app.get('/task/:id', async (req: Request, res: Response) => {
         res.status(500).send('Try again')
     }
 })
+
+
+// pegar tarefas por id 
+app.get('/task', async (req:Request, res:Response)=>{
+       try{
+        const creatorUseId = req.query.creatorUseId as string
+
+        const result = await getTaskByUserId(creatorUseId)
+
+        res.status(201).send(result)        
+       } catch(err:any){
+        res.status(500).send(err.message)
+       }
+})
+
+// responstavel pela task
+app.post('/task/responsible', async (req:Request, res:Response)=>{
+    try{
+        const user = req.body.user as string
+        const result = await responsible(user)
+
+        if(!user || user.length){
+            reqError = 402
+            res.status(reqError).send('Please, fill the fields')
+        }
+        res.status(201).send(result)
+    } catch(err:any){
+        res.status(500).send(err.message)
+    }
+})
+
+// pesquisar user por ID
+app.get('/user', async (req:Request, res:Response)=>{
+    try{
+        const user = req.body.user as string
+        const result = await searchUser(user)
+        if(!user){
+            reqError = 402
+            res.status(reqError).send(`User don't exist` )
+        }
+        if(result.length === 0){
+            reqError = 404
+            res.status(reqError).send([])
+            
+        }
+        res.status(200).send(result)
+
+    } catch(err:any){
+        res.status(500).send(err.message)
+    }
+})
+
+
