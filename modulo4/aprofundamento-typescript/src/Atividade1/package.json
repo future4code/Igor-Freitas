@@ -1,0 +1,14 @@
+{
+  "name": "aula-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.js",
+  "scripts": {
+    "start": "tsc && node ./build/1.js"
+  },
+  "author": "Igor Medeiros",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.5.4"
+  }
+}
