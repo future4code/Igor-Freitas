@@ -1,8 +1,9 @@
 import {Request, Response} from 'express'
-import { createU } from './SQLFunctions'
+import { createU } from '../SQL Code/SQLFunctions'
+
 
 let reqError = 0
-export const createUser = async (req:Request, res:Response): Promise<any> =>{
+ const createUser = async (req:Request, res:Response): Promise<any> =>{
     try{
         const { id, name, email, password} = req.body 
         if(!name || !email || !password || password.length === ''){
@@ -16,3 +17,4 @@ export const createUser = async (req:Request, res:Response): Promise<any> =>{
         res.status(500).send(err.message)
     }
 }
+export default createUser

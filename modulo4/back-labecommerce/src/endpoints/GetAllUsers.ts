@@ -1,9 +1,9 @@
 import {Request, Response} from 'express'
-import { getAllU } from './SQLFunctions'
+import { getAllU } from '../SQL Code/SQLFunctions'
 
 
 let reqError = 0
-export const getAllUsers = async (req:Request, res:Response) =>{
+ const getAllUsers = async (req:Request, res:Response) =>{
     try{
       const result = await getAllU()
       if(result.length === 0){
@@ -15,3 +15,4 @@ export const getAllUsers = async (req:Request, res:Response) =>{
         res.status(500).send('Internal Server Error')
     }
 }
+export default getAllUsers
