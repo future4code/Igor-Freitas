@@ -19,7 +19,7 @@ export const createUser = async (req:Request, res:Response):Promise<void> =>{
         }
 
        await connection('User')
-       .insert({email, password})
+       .insert({id, email, password})
        
     } catch(error:any){
         res.status(400).send(error.message)
