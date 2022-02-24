@@ -4,9 +4,10 @@ import { User } from "../entities/User";
 export class UserDataBase extends baseDataBase{
 
   async createUser(user:User){
+    console.log(user)
     await baseDataBase.connection('Cookenu').insert({
         id: user.getId(),
-        name: user.getName(),
+        nome: user.getName(),
         email: user.getEmail(),
         password: user.getPassword()
     })
