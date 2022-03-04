@@ -1,0 +1,28 @@
+POST http://localhost:3003/login
+Content-Type: application/json
+Authorization: "3a297fc1-910e-4fc1-a8b1-5fcc01da752b"
+
+{
+
+    "email": "igor@gmail.com",
+    "password": "igorigor123"
+}
+###
+
+GET http://localhost:3003/user/profile
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhMjk3ZmMxLTkxMGUtNGZjMS1hOGIxLTVmY2MwMWRhNzUyYiIsImlhdCI6MTY0NjE0MjQwNiwiZXhwIjoxNjQ2MzE1MjA2fQ.49cL29yj9iWoi1CgLgoM-18SHSo7OuSSdI5FwNx7PoU
+
+###
+POST http://localhost:3003/recipe
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhMjk3ZmMxLTkxMGUtNGZjMS1hOGIxLTVmY2MwMWRhNzUyYiIsImlhdCI6MTY0NjI1ODk3NSwiZXhwIjoxNjQ2NDMxNzc1fQ.bQiculocWEhoeB3guk3CaXx8vxPBMfv6y-30KipSnpM
+
+{
+    "title": "Arroz",
+    "description": "AAAAAAAAAAAAAAAAAAAAAAAA"
+}
+
+
+###
+GET http://localhost:3003/recipe
