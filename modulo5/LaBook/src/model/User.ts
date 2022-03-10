@@ -1,5 +1,6 @@
-export default class User{
-    get password():string{
-        return this._password
-    }
+export type SingupInputDTO = {
+    name:string,
+    email:string,
+    password: string
 }
+
