@@ -8,6 +8,7 @@ export class PostBusiness {
     private postData: PostRepository
     private idGenerator: IdGeneration
     private authentication: Authenticator
+    
     constructor(postDataImplementation: PostRepository) {
         this.postData = postDataImplementation
         this.idGenerator = new IdGeneration()
