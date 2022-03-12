@@ -31,4 +31,15 @@ export class PostController {
             res.status(400).send("Erro ao tentar criar post")
         }
     }
+    getPostById = async(req:Request, res:Response) =>{
+        const id = req.params.id
+        const token = req.headers.authorization as string
+        
+        try{
+            const reuslt = await this.postBusiness.getPostById(id, token)
+        } catch(e:any){
+            if(e.message) return res.status(400).send(e.message)
+            res.status(400).send('Post não existe')
+        }
+    }
 }
