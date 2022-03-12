@@ -4,15 +4,16 @@ import { UserRepository } from "../business/UserRepository";
 
 
 export class UserDatabase extends BaseDatabase implements UserRepository{
-    protected TABLE_USERS = ''
-    protected TABLE_FRIENDS = ''
+    protected TABLE_USERS = 'labook_users'
+    protected TABLE_FRIENDS = 'labook_friends'
     
-    insert = async (user:User) =>{
-        try{
+    insert = async (user: User) => {
+        try {
             await BaseDatabase.connection(this.TABLE_USERS)
-            .insert(user)
-        } catch(e:any){
-            throw new Error('Erro ao registrar usuário')
+                .insert(user)
+            return user
+        } catch (error: any) {
+            throw new Error('Erro ao registrar o usuário')
         }
     }
 
