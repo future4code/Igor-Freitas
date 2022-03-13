@@ -6,6 +6,9 @@ export type CreatePostInputDTO = {
 }
 
 export class Post {
+    static toPostModel(arg0: any) {
+        throw new Error("Method not implemented.")
+    }
     constructor(
         private id: string,
         private photo: string,

@@ -2,13 +2,12 @@ import { CreatePostInputDTO, Post } from "../model/Post"
 import { IdGeneration } from "../services/idGenerator"
 import { Authenticator } from "../services/Authenticador"
 import { PostRepository } from "./PostRepository"
-import { PostDatabase } from "../data/PostDatabase"
 
 export class PostBusiness {
     private postData: PostRepository
     private idGenerator: IdGeneration
     private authentication: Authenticator
-    
+
     constructor(postDataImplementation: PostRepository) {
         this.postData = postDataImplementation
         this.idGenerator = new IdGeneration()
@@ -38,7 +37,7 @@ export class PostBusiness {
             author_id
         )
 
-        await this.postData.insert(post, verifyToken.id)
+        await this.postData.insert(post)
         return 'Postado'
     }
     getPostById = async (id: string, token: string) => {

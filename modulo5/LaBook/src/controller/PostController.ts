@@ -37,6 +37,7 @@ export class PostController {
         
         try{
             const reuslt = await this.postBusiness.getPostById(id, token)
+            res.status(200).send(reuslt)
         } catch(e:any){
             if(e.message) return res.status(400).send(e.message)
             res.status(400).send('Post não existe')
