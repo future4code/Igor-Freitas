@@ -1,0 +1,30 @@
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+
+{
+    "name": "Aline",
+    "email": "aline@gmail.com",
+    "password": "alinealine",
+    "role": "ADMIN"
+}
+
+###
+
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+    "email": "aline@gmail.com",
+     "password": "alinealine"
+}
+
+###
+
+GET http://localhost:3003/users
+Content-Type: application/json
+
+###
+
+DEL http://localhost:3003/users/f1429782-6857-4d50-af01-f2279f83a2a6
+Content-Type: application/json
