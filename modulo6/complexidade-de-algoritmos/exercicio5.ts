@@ -1,0 +1,1 @@
+// 3 -> 1 = 2 -> 4, da maior eficiência para a menor perfomace
