@@ -16,17 +16,34 @@ export const MenuContent = styled.div`
    flex-direction: column;
    justify-content: space-evenly;
    color: #FFFF;
+   padding-top: 15vw;
+
    
     select{
         width: 150px;
-        height: 30px;
+        padding: 10px;
         border: none;
         border-radius: 10px;
         font-size: 15px;
         font-weight: bolder;
         text-align: center;
+        text-transform: capitalize;
+        outline: 0;
     }
-
+    div{
+        padding-bottom: 20px;
+    }
+    p{
+        margin: auto;
+        font-weight: 200;
+        letter-spacing: 3px;
+        padding-bottom: 5px;
+    }
+   
+    img{
+       width: 265px;
+       height: 265px;
+   }
     @media only screen and (min-width: 600px){
         width: 60%;
         height: 100px;
@@ -34,13 +51,14 @@ export const MenuContent = styled.div`
         align-items: center;
         justify-content: center;
         text-align: center;
+        
     }
 
 `
 
-export const NumbersContent = styled.div`
+    export const NumbersContent = styled.div`
     width: 100%;
-    height: 60vh;
+    height: 50vh;
     min-height: 350px;
     display: flex;
     flex-direction: column;
@@ -73,8 +91,20 @@ export const NumbersContent = styled.div`
             width: 90%;
         }
     }
-
+    
 `
+
+export const Footer = styled.footer`
+        display: flex;
+        align-items: center;
+        bottom: 0;
+        position: fixed;
+        p{
+            font-weight: bolder;
+            width: 100%;
+        }
+    
+    `
 
 export const Division = styled.div`
     width: 100%;
@@ -82,7 +112,7 @@ export const Division = styled.div`
     max-height: 65px;
     position: relative;
         path{
-            fill: #EFEFEF
+            fill: #EFEFEF;
         }
         @media only screen and (min-width: 600px){
             width: 0px;
@@ -101,11 +131,10 @@ export const NumberBall = styled.div`
     margin: 5px;
     background-color: #FFFF;
     
-    @media only screen and (max-widt: 430px) {
+    @media only screen and (max-width: 430px) {
         width: 50px;
         height: 50px;
         margin: 2px;
         display: flex;
     }
-
 `

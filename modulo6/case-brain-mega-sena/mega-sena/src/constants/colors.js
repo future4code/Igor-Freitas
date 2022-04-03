@@ -1,7 +1,6 @@
-export const megaSena = '6BEFA3'
 
 export const LoterryColors = [
-    { id: 0, color: '#6BEFA3' },
+    { id: 0, color: '#009F44' },
     { id: 1, color: '#8666EF' },
     { id: 2, color: '#DD7AC6' },
     { id: 3, color: '#FFAB64' },

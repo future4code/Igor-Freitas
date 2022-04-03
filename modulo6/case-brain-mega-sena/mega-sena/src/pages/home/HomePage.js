@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import { getNumberResult, getLoterryResults, getContestResult } from '../../API/getLoterryInfo'
 import GlobalStyle from '../../style/GlobalStyle'
-import { LoterryColors, megaSena } from '../../constants/colors'
+import { LoterryColors } from '../../constants/colors'
+
+
 import * as S from './styled'
 
 
@@ -13,6 +15,8 @@ export const HomePage = () => {
     const [loterryContest, setContestLoterry] = useState([])
     const [loterryNumber, setLoterryNumber] = useState([])
     const [colorSelector, setColorSelector] = useState([])
+    const [logoChanger, setLogoChanger] = useState(<img src='https://i.ibb.co/Mpv3Khr/logo-mega-sena-256.png'/>)
+
 
     useEffect(() => {
         getLoterryResults(setLoterryResult)
@@ -24,6 +28,7 @@ export const HomePage = () => {
         loterryContest.filter((data) => {
             if (data.loteriaId === loterry.id) {
                 getNumberResult(setLoterryNumber, data.concursoId)
+
                 LoterryColors.map((color) => {
                     if (loterry.id === color.id) {
                         setColorSelector(color.color)
@@ -34,9 +39,7 @@ export const HomePage = () => {
         })
     }, [loterryContest])
 
-    const date = loterryNumber.data && loterryNumber.data.split('T')[0]
-    const formatDate = date && date.split('-')
-    const newDate = formatDate && `${formatDate[2]}/${formatDate[1]}/${formatDate[0]}`
+
 
 
     const changeLoterry = (event) => {
@@ -47,8 +50,10 @@ export const HomePage = () => {
         })
     }
 
+
+
     const renderSelectLoterry = resultLoterry.map((data) => {
-        return <option key={data.id} value={data.id}>
+        return <option key={data.id} value={data.id} >
             {data.nome}
         </option>
     })
@@ -69,16 +74,30 @@ export const HomePage = () => {
     })
 
 
+  
+
+
+    const date = new Date()
+    const newDate = date.toLocaleDateString()
+
     return (
         <S.MainContent color={colorSelector}>
             <GlobalStyle />
+
             <S.MenuContent>
-                <select onChange={changeLoterry}>
+                <select onChange={changeLoterry }>
                     {renderSelectLoterry}
                 </select>
-                <h2>{loterry.nome.toUpperCase()}</h2>
-                <p>Concurso Nº {getConcurseNumber[0] && getConcurseNumber[0].concursoId} - {newDate}</p>
+
+               {logoChanger}
+
+                <div>
+                    <p>Concurso</p>
+                    <b>{getConcurseNumber[0] && getConcurseNumber[0].concursoId} - {newDate} </b>
+                </div>
+
             </S.MenuContent>
+
             <S.Division>
                 <svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2436 252">
                     <path class="cls-1" d="M0,494s1000-243,2436,0V638H0Z" transform="translate(0 -386)" />
@@ -87,11 +106,17 @@ export const HomePage = () => {
 
             <S.NumbersContent>
                 <div>
-                {renderSelectNumber}
+                    {renderSelectNumber}
+                    
                 </div>
-                <p>Este sorteio é meramente ilustrativo e não possui nenhuma ligação com a CAIXA.</p>
+
+                <S.Footer>
+                    <p>Este sorteio é meramente ilustrativo e não possui nenhuma ligação com a CAIXA.</p>
+
+                </S.Footer>
+
             </S.NumbersContent>
-            
+
         </S.MainContent>
     )
 }
