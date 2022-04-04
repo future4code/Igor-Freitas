@@ -15,7 +15,6 @@ export const HomePage = () => {
     const [loterryContest, setContestLoterry] = useState([])
     const [loterryNumber, setLoterryNumber] = useState([])
     const [colorSelector, setColorSelector] = useState([])
-    const [logoChanger, setLogoChanger] = useState(<img src='https://i.ibb.co/Mpv3Khr/logo-mega-sena-256.png'/>)
 
 
     useEffect(() => {
@@ -74,7 +73,7 @@ export const HomePage = () => {
     })
 
 
-  
+
 
 
     const date = new Date()
@@ -85,17 +84,18 @@ export const HomePage = () => {
             <GlobalStyle />
 
             <S.MenuContent>
-                <select onChange={changeLoterry }>
+                <select onChange={changeLoterry}>
                     {renderSelectLoterry}
                 </select>
-
-               {logoChanger}
-
                 <div>
-                    <p>Concurso</p>
-                    <b>{getConcurseNumber[0] && getConcurseNumber[0].concursoId} - {newDate} </b>
+                    <h2>
+                        {loterry.nome.toUpperCase()}
+                    </h2>
                 </div>
 
+                    <p>Concurso</p>
+                    <b>{getConcurseNumber[0] && getConcurseNumber[0].concursoId} - {newDate} </b>
+               
             </S.MenuContent>
 
             <S.Division>
@@ -107,7 +107,7 @@ export const HomePage = () => {
             <S.NumbersContent>
                 <div>
                     {renderSelectNumber}
-                    
+
                 </div>
 
                 <S.Footer>

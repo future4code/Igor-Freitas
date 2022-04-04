@@ -12,16 +12,16 @@ export const MainContent = styled.div`
 `
 export const MenuContent = styled.div`
    display: flex;
+   height: 40%;
    align-items: center;
    flex-direction: column;
    justify-content: space-evenly;
    color: #FFFF;
-   padding-top: 15vw;
 
    
     select{
-        width: 150px;
         padding: 10px;
+        margin-top: 30vw;
         border: none;
         border-radius: 10px;
         font-size: 15px;
@@ -29,21 +29,17 @@ export const MenuContent = styled.div`
         text-align: center;
         text-transform: capitalize;
         outline: 0;
+        flex: 1;
     }
-    div{
-        padding-bottom: 20px;
-    }
+   h2{
+       padding: 10vw;
+   }
     p{
-        margin: auto;
         font-weight: 200;
         letter-spacing: 3px;
         padding-bottom: 5px;
     }
    
-    img{
-       width: 265px;
-       height: 265px;
-   }
     @media only screen and (min-width: 600px){
         width: 60%;
         height: 100px;
