@@ -1,71 +1,68 @@
-export type DogWalkDTO = {
-    status: Status,
-    date: string
-    time: Time,
-    pets: number,
-    price: number,
-    latitude: string,
-    longitude: string
-    start_time: string,
-    end_time: string
-
-}
-
-export enum Status {
-    CARRIED = 'REALIZADA',
-    SCHEDULED = 'AGENDADA'
-
-}
-
-export enum Time {
-    ONE_HOUR = 60,
-    HALF_HOUR = 30
-}
 export class DogWalk {
     constructor(
         private id: string,
-        private status: Status,
         private date: string,
-        private time: Time,
-        private pets: number,
-        private price: number,
         private latitude: string,
         private longitude: string,
-        private start_time: string,
-        private end_time: string
+        private pets: number,
+    ) { }
 
-    ) {}
 
-  
-    getId() {
+    public getId() {
         return this.id
     }
-    getStatus() {
-        return this.status
-    }
-    getDate() {
-        return this.date
-    }
-    getTime() {
-        return this.time
-    }
-    getPets(){
+    public getPets() {
         return this.pets
     }
-    getPrice(){
-        this.price
+    public getDate() {
+        return this.date
     }
-    getLatitude(){
-        this.latitude
+    public getLatitute() {
+        return this.latitude
     }
-    getLongitude(){
-        this.longitude
+    public getLongitute() {
+        return this.longitude
     }
-    getStartTime(){
-        this.start_time
-    }
-    getEndTime(){
-        this.end_time
-    }
+
+}
+
+export type CreateWalk = {
+    date:string,
+    latitude:string,
+    longitude:string
+    pets:number,
+}
+
+export enum Status {
+    AGENDADO = 'Agendado',
+    REALIZADO = 'Realizado'
+}
+
+export enum Duration {
+    HALF = '30',
+    HOUR = '60',
+    TO_DO = 'Aguardando '
+}
+
+export type Editwalk = {
+    id:string
+    status: Status,
+    price:number,
+    duration: Duration,
+    startTime:string,
+    endTime:string
+}
+
+export type WalkingResponse = {
+    id:string,
+    status:Status,
+    date:string,
+    price:number,
+    duration:Duration,
+    latitude:string,
+    longitude:string,
+    pets:number,
+    start_time:string,
+    end_time:string
 
 }
