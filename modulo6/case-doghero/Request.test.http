@@ -1,0 +1,8 @@
+POST http://localhost:3003/dog-walker/register
+Content-Type: application/json
+
+{
+    "status": "CARRIED",
+    "date": "2022/03/24",
+  
+}
