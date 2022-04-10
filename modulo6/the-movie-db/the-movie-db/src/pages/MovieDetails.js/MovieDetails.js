@@ -27,7 +27,7 @@ export const MovieDetails = () => {
     const newDate = releaseDate && releaseDate.split('-')
     const releaseYear = newDate && newDate[0]
     const popularity = movie && movie.popularity
-    
+
 
 
 
@@ -36,9 +36,12 @@ export const MovieDetails = () => {
             <S.Img src={`${IMAGE_URL}${movie && movie.poster_path}`} />
             <S.InfoContent>
                 <h1>{movie && movie.title} ({releaseYear})</h1>
-                <>{releaseDate} </>
-                <>{movie.vote_average}</>
-                <div>{popularity}</div>
+                <S.DetailsContent>
+                    {releaseDate}
+                </S.DetailsContent>
+                <S.AverageContent>
+                    {movie.vote_average}
+                </S.AverageContent>
                 <h2>Sinopse</h2>
                 <h3>{movie && movie.overview}</h3>
             </S.InfoContent>
