@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+<p  align="center">
+<a href="https://tmdb-movies.netlify.app/">
+		<img  src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Tmdb-312x276-logo.png"  alt="Logo TMDB"  title="Logo TMDB" />
+	</a>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h4 align="center"> 🌟 TMDB ReactJs 🌟 </h4>
 
-## Available Scripts
+#
 
-In the project directory, you can run:
+<p align="center">
+  Um React app totalmente responsivo construído com React consumindo a api pública do TMDB.
+</p>
 
-### `npm start`
+<p align="center">
+    <a href="https://github.com/matheusmhq/tmdb-react-js/blob/main/LICENSE" alt="license">
+        <img src="https://img.shields.io/github/license/matheusmhq/tmdb-react-js?style=plastic" />
+    </a>
+</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<p align="center">
+  <a href="#demo">Demo</a> •
+  <a href="#bibliotecas">Bibliotecas</a> •
+  <a href="#iniciando">Iniciando</a>   
+</p>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<p align="center">
+    <img style="border-radius: 5px" src="src/assets/img/demo.gif" alt="Tmdb React js">
+</p>
 
-### `npm test`
+# Demo
+sedate-brake.surge.sh
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Bibliotecas
 
-### `npm run build`
+As principais bibliotecas usadas nesse projeto:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Biblioteca             | Descrição   |
+| :-------------:|--------------|
+| [React](http://facebook.github.io/react/index.html) | Uma biblioteca JavaScript para criar interfaces de usuário. |
+| [Router Dom](https://reactrouter.com/) | O React Router Dom é uma lib completa para controle de rotas. |
+| [Axios](https://github.com/axios/axios) | Cliente HTTP baseado em promessa para o navegador e node.js. |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Iniciando
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Clonar esse repositório
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Instale as dependências
 
-## Learn More
+  ```
+  yarn install ou npm install
+  ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Pegue uma API KEY em [TMDB](https://www.themoviedb.org). Faça login usando sua conta e navegue até [TMDB Configurações da conta](https://www.themoviedb.org/settings/api). Copie a API KEY (v3 auth) e crie o seguinte arquivo **_.env.local_** na pasta raiz do projeto
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Cole isso no seu arquivo **/constants/api_key.js** e salve
 
-### Code Splitting
+  ```
+  API_KEY = COLE_SUA_API_KEY_AQUI
+  ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Agora é só rodar **yarn start** ou **npm start**
 
-### Analyzing the Bundle Size
+- A aplicação irá abrir no seguinte endereço `http://localhost:3000`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Bons estudos pra você! 😀😀😀
