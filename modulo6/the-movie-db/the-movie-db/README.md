@@ -9,14 +9,10 @@
 #
 
 <p align="center">
-  Um React app totalmente responsivo construído com React consumindo a api pública do TMDB.
+  Um React app construído com React consumindo a api pública do TMDB.
 </p>
 
-<p align="center">
-    <a href="https://github.com/matheusmhq/tmdb-react-js/blob/main/LICENSE" alt="license">
-        <img src="https://img.shields.io/github/license/matheusmhq/tmdb-react-js?style=plastic" />
-    </a>
-</p>
+
 
 <p align="center">
   <a href="#demo">Demo</a> •
@@ -24,9 +20,6 @@
   <a href="#iniciando">Iniciando</a>   
 </p>
 
-<p align="center">
-    <img style="border-radius: 5px" src="src/assets/img/demo.gif" alt="Tmdb React js">
-</p>
 
 # Demo
 igor-tmdb.surge.sh
