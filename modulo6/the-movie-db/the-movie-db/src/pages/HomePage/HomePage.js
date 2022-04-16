@@ -1,16 +1,15 @@
-import axios from "axios"
-import { useContext, useEffect } from "react"
-import { useNavigate } from "react-router"
-import { CardMovie } from "../../components/CardMovie/CardMovie"
-import GlobalStateContext from "../../globalContext/GlobalStateContext"
-import { goToMovieDetails } from "../../router/coordinator"
+import { useContext} from 'react'
+import { useNavigate } from 'react-router'
+import { CardMovie } from '../../components/CardMovie/CardMovie'
+import GlobalStateContext from '../../globalContext/GlobalStateContext'
+import { goToMovieDetails } from '../../router/coordinator'
+import Pagination from '@mui/material/Pagination'
 import * as S from './styles'
-
 
 export const HomePage = () => {
     const { states, setters } = useContext(GlobalStateContext)
     const { listMovies, movieGenres } = states
-    
+
     const navigate = useNavigate()
     const goToDetails = (id) => {
         goToMovieDetails(navigate, id)
@@ -32,8 +31,13 @@ export const HomePage = () => {
         )
     })
 
+    const onChangePagination = (value) => {
+        setters.setPagination(value)
+       
+    }
+
     return (
-        <S.Content>
+        <S.MainContent>
             <S.GenreContent>
                 <h1>Milhões de filmes, séries e pessoas para descobrir, Explore já.</h1>
                 <p>FILTRE POR:</p>
@@ -41,9 +45,10 @@ export const HomePage = () => {
                     {renderMovieGenres}
                 </S.Buttons>
             </S.GenreContent>
-            <S.MovieContent>
+            <S.MoviesContent>
                 {renderMovies}
-            </S.MovieContent>
-        </S.Content>
+            <Pagination count={500} defaultPage={1}  onChange={onChangePagination}/>
+            </S.MoviesContent>
+        </S.MainContent>
     )
 }

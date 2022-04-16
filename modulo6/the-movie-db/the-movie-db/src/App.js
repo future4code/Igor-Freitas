@@ -1,6 +1,6 @@
-import Router from './router/Router';
-import { GlobalState } from "./globalContext/GlobalState";
-import { Header } from './components/Header/Header';
+import Router from './router/Router' 
+import { GlobalState } from './globalContext/GlobalState' 
+import { Header } from './components/Header/Header' 
 
 function App() {
   return (
@@ -11,4 +11,4 @@ function App() {
   )
 }
 
-export default App;
+export default App 

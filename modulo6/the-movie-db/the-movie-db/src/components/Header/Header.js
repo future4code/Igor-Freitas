@@ -1,10 +1,10 @@
-import * as S from "./styles"
+import { HeaderStyled } from "./styles"
 import logo from "../../assets/logo_TMDB.png"
 
 export const Header = () => {
     return (
-        <S.Header>
+        <HeaderStyled>
             <img src={logo}/>
-        </S.Header>
+        </HeaderStyled>
     )
 }

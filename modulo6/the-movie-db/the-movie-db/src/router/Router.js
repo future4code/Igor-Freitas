@@ -1,6 +1,6 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { HomePage } from "../pages/HomePage/HomePage";
-import { MovieDetails } from "../pages/MovieDetails.js/MovieDetails";
+import { BrowserRouter, Routes, Route } from 'react-router-dom' 
+import { HomePage } from '../pages/HomePage/HomePage' 
+import { MovieDetails } from '../pages/MovieDetails.js/MovieDetails' 
 
 const Router = () => {
     return (
@@ -13,4 +13,4 @@ const Router = () => {
     )
 }
 
-export default Router;
+export default Router 

@@ -1,56 +1,180 @@
 import GlobalStateContext from '../../globalContext/GlobalStateContext'
-import { useContext, useState } from 'react'
+import { API_KEY } from '../../constants/api_key'
+import { BASE_URL, IMAGE_URL } from '../../constants/urls'
 import { useParams } from 'react-router'
-import { IMAGE_URL } from '../../constants/urls'
+import { useContext, useState } from 'react'
 import movieRequestDataDetails from '../../hooks/movieRequestDataDetails'
-import MovieRequestDataInfo from '../../hooks/movieRequestDataInfo'
 import * as S from './styles'
+
 
 export const MovieDetails = () => {
     const { states, setters } = useContext(GlobalStateContext)
-    const { listMovies, movieGenres, } = states
+    const { listMovies, movieGenres } = states
     const [movieDetail, setMovieDetail] = useState([])
     const params = useParams()
+    console.log(params)
 
-    const detailMovie = movieRequestDataDetails(params.movieId)
-    const movieInfos = MovieRequestDataInfo(params.movieId)
+    const detailMovie = movieRequestDataDetails(`${BASE_URL}/movie/${params.movieId}${API_KEY}&language=pt-br`)
+    const movieInfos = movieRequestDataDetails(`${BASE_URL}/movie/${params.movieId}/release_dates${API_KEY}`)
+    const movieCredits = movieRequestDataDetails(`${BASE_URL}/movie/${params.movieId}/credits${API_KEY}&language=pt-br`)
+    const movieVideos = movieRequestDataDetails(`${BASE_URL}/movie/${params.movieId}/videos${API_KEY}&language=pt-br`)
+    const movieRecommendations = movieRequestDataDetails(`${BASE_URL}/movie/${params.movieId}/recommendations${API_KEY}&language=pt-br&page=1`)
+    console.log(movieRecommendations)
 
-
-
-
-    const movieFilter = listMovies && listMovies.filter((data) => {
-        return data.id == params.movieId
+    const movieInfo = movieInfos.results && movieInfos.results.filter((data) => {
+        return data.iso_3166_1 === 'BR' || data.iso_3166_1 === 'US' || data.iso_3166_1 === 'ES'
     })
 
-    const movie = movieFilter[0]
-    const releaseDate = movie && movie.release_date
-    const newDate = releaseDate && releaseDate.split('-')
-    const releaseYear = newDate && newDate[0]
-    const popularity = movie && movie.popularity
+    const datePermission = movieInfo && movieInfo[0].release_dates[0].certification
 
+    const dateMovie = detailMovie && detailMovie.release_date
+    const newDate = dateMovie && dateMovie.split('-')
+    const movieYear = newDate && newDate[0]
 
+    const releaseDate = movieInfo && movieInfo[0].release_dates[0].release_date.split('T')[0]
+    const formatDate = releaseDate && releaseDate.split('-')
+    const newReleaseDate = formatDate && `${formatDate[2]}/${formatDate[1]}/${formatDate[0]}`
 
+    const genresMovie = detailMovie.genres && detailMovie.genres.map((data) => {
+        return data.name
+    })
 
-    const renderMovie = (
-        <S.Container>
-            <S.Img src={`${IMAGE_URL}${movie && movie.poster_path}`} />
-            <S.InfoContent>
-                <h1>{movie && movie.title} ({releaseYear})</h1>
-                <S.DetailsContent>
-                    {releaseDate}
-                </S.DetailsContent>
-                <S.AverageContent>
-                    {movie.vote_average}
-                </S.AverageContent>
-                <h2>Sinopse</h2>
-                <h3>{movie && movie.overview}</h3>
-            </S.InfoContent>
-        </S.Container>
+    const convertTime = (minutes) => {
+        const time = Math.floor(minutes / 60);
+        const min = minutes % 60;
+        const textTime = (`${time}`).slice(-2);
+        const textMin = (`${min}`).slice(-2);
+
+        return `${textTime}h ${textMin}m`;
+    };
+
+    const creditsFilter = movieCredits.crew && movieCredits.crew.filter((data) => {
+        return data.job === 'Director' || data.job === 'Characters' || data.job === 'Screenplay'
+    })
+
+    const renderCredits = creditsFilter && creditsFilter.map((data) => {
+        return (
+            <div >
+                <p><b>{data.name}</b></p>
+                <p>{data.job}</p>
+            </div>
+        )
+
+    })
+
+    const renderDetailMovie = detailMovie && (
+        <S.MainContainer>
+            <S.Content>
+                <S.PosterImg src={`${IMAGE_URL}${detailMovie && detailMovie.poster_path}`} />
+                <S.InfoContent>
+                    <h2>{detailMovie && detailMovie.title} ({movieYear})</h2>
+                    <div>
+                        <p>
+                            {datePermission} - {newReleaseDate} (BR) - {genresMovie && genresMovie[0]}, {genresMovie && genresMovie[1]}, {genresMovie && genresMovie[2]}, {genresMovie && genresMovie[3]} - {detailMovie && convertTime(detailMovie.runtime)}
+                        </p>
+                        <p>Avaliação dos usuários</p>
+                    </div>
+                    <h3>Sinopse</h3>
+                    <p>{detailMovie && detailMovie.overview}</p>
+                    <S.CreditContent>
+                        {renderCredits}
+                    </S.CreditContent>
+                </S.InfoContent>
+            </S.Content>
+        </S.MainContainer>
     )
 
+    const renderCastMovie = movieCredits.cast && movieCredits.cast.map((data) => {
+        return (
+            <S.CastContent>
+                <S.ImgCast src={`${IMAGE_URL}${data.profile_path}`} />
+                <p><b>{data.name}</b></p>
+                <p>{data.character}</p>
+            </S.CastContent>
+        )
+    })
+
+
+    const movieTrailer = movieVideos && movieVideos.results && movieVideos.results.filter((data) => {
+        return data.type === 'Trailer'
+    })
+
+    const renderTrailer = movieTrailer && movieTrailer[0] && <div>
+        <iframe width='560' height='315' src={`https://www.youtube.com/embed/${movieTrailer[0].key}`} title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
+    </div>
+
+    const renderRecommendations = movieRecommendations && movieRecommendations.results && movieRecommendations.results.map((data) => {
+        const dateSplit = data.release_date.split('-')
+        let date = ''
+        switch (dateSplit[1]) {
+            case '01':
+                date = 'JAN'
+                break;
+            case '02':
+                date = 'FEV'
+                break;
+            case '03':
+                date = 'MAR'
+                break;
+            case '04':
+                date = 'ABR'
+                break;
+            case '05':
+                date = 'MAI'
+                break;
+            case '06':
+                date = 'JUN'
+                break;
+            case '07':
+                date = 'JUL'
+                break;
+            case '08':
+                date = 'AGO'
+                break;
+            case '09':
+                date = 'SET'
+                break;
+            case '10':
+                date = 'OUT'
+                break;
+            case '11':
+                date = 'NOV'
+                break;
+            case '12':
+                date = 'DEZ'
+                break;
+            default:
+                date = ''
+        }
+        const newDate = `${dateSplit[2]} ${date} ${dateSplit[0]}`
+        return (
+            <S.RecommendationsContainer>
+                <S.ImgRecommendations src={`${IMAGE_URL}${data.poster_path}`} />
+                <p><b>{data.title}</b></p>
+                <S.Date><b>{newDate}</b></S.Date>
+            </S.RecommendationsContainer>
+        )
+    })
+
     return (
-        <div>
-            {renderMovie}
-        </div>
+        <S.PageContainer>
+            {renderDetailMovie}
+            <S.CastContainer>
+                <h2>Elenco original</h2>
+                <div>
+                    {renderCastMovie}
+                </div>
+            </S.CastContainer>
+            <S.TrailerContent>
+                <h2>Trailer</h2>
+                {renderTrailer}
+            </S.TrailerContent>
+            <S.RecommendationContent>
+                <h2>Recomendações</h2>
+                <div>
+                    {renderRecommendations}
+                </div>
+            </S.RecommendationContent>
+        </S.PageContainer>
     )
 }

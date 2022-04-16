@@ -1,29 +1,24 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { API_KEY } from '../constants/api_key'
-import { BASE_URL } from '../constants/urls'
 
-const MovieRequestDataDetails = (id) => {
+
+const MovieRequestDataDetails = (link) => {
     const [data, setData] = useState([])
-    
 
     useEffect(() => {
         getMovieDetails()
     }, [])
 
     const getMovieDetails = () => {
-        axios.get(`${BASE_URL}/movie/${id}${API_KEY}&language=pt-br`)
+        axios.get(link)
         .then((res) => {
             setData(res.data)
-            // console.log('xxx', res.data)
-        
-
         })
-        .catch((err) => {
-            console.log('Não foi possível encontrar os filmes', err)
+        .catch((e) => {
+            console.log('Erro na requisição', e)
         })
     }
-    return data 
+    return data
 }
 
 export default MovieRequestDataDetails

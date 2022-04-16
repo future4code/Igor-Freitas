@@ -15,10 +15,10 @@ const MovieRequestDataInfo = (id) => {
         axios.get(`${BASE_URL}/movie/${id}/release_dates${API_KEY}`)
         .then((res) => {
             setData(res.data)
-            // console.log('details', res.data)
+           
         })
-        .catch((err) => {
-            console.log('Erro no get de informações', err)
+        .catch((e) => {
+            console.log('Erro na requisição', e)
         })
     }
     return data

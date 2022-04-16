@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const Content = styled.div`
+export const MainContent = styled.div`
+    /* margin: auto; */
     display: flex;
     flex-direction: column;
 `
@@ -51,7 +52,7 @@ export const Buttons = styled.div`
     }
 `
 
-export const MovieContent = styled.div`
+export const MoviesContent = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
